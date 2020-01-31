@@ -97,9 +97,15 @@ class PokerHandsTest {
             listOf(2, 3, 5, 10, 10)
         ),
         arrayOf(
-            "Player A and B have a tied pair and the their cards are tied",
+            "Player A and B have a tied pair and their cards are tied",
             "Tie",
             listOf(2, 3, 4, 10, 10),
+            listOf(2, 3, 4, 10, 10)
+        ),
+        arrayOf(
+            "Player A has 2 pairs",
+            "Player A Wins",
+            listOf(2, 2, 4, 10, 10),
             listOf(2, 3, 4, 10, 10)
         )
     )

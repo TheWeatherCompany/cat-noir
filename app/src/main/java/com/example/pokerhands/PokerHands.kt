@@ -10,10 +10,19 @@ class PokerHands {
         val sortedA = playerA.sortedDescending()
         val sortedB = playerB.sortedDescending()
 
-        return whoWinsPair(sortedA, sortedB) ?: whoWinsWhenBothHaveHighCard(sortedA, sortedB)
+        return whoWins2Pair(sortedA, sortedB) ?: whoWinsPair(sortedA, sortedB) ?: whoWinsHighCard(sortedA, sortedB)
     }
 
-    fun getPair(cards: List<Int>): Int {
+    private fun whoWins2Pair(sortedA: List<Int>, sortedB: List<Int>): String? {
+
+        if (getPair(sortedA) != 0 && get2Pair(sortedA) != 0) {
+            return "Player A Wins"
+        } else {
+            return ""
+        }
+    }
+
+    private fun getPair(cards: List<Int>): Int {
         cards.forEach {
             val duplicates = countDuplicates(it, cards)
 
@@ -25,24 +34,30 @@ class PokerHands {
         return 0
     }
 
-    fun countDuplicates(item: Int, list: List<Int>): Int {
+    private fun get2Pair(cards: List<Int>): Int {
+        val firstPair = getPair(cards)
+        return getPair(cards.filter { it == firstPair })
+    }
+
+    private fun countDuplicates(item: Int, list: List<Int>): Int {
         return list.count { it == item } - 1
     }
 
-
     private fun whoWinsPair(sortedA: List<Int>, sortedB: List<Int>): String? {
-        if (getPair(sortedA) > getPair(sortedB)) {
-            return "Player A Wins"
-        } else if (getPair(sortedA) < getPair(sortedB)) {
-            return "Player B Wins"
-        } else if (getPair(sortedA) < getPair(sortedB)) {
-            return whoWinsWhenBothHaveHighCard(sortedA, sortedB)
+        val pairA = getPair(sortedA)
+        val pairB = getPair(sortedB)
+        return if (pairA > pairB) {
+            "Player A Wins"
+        } else if (pairA < pairB) {
+            "Player B Wins"
+        } else if (pairA > 0 && pairB > 0 && pairA == pairB) {
+            whoWinsHighCard(sortedA, sortedB)
         } else {
-            return null
+            null
         }
     }
 
-    private fun whoWinsWhenBothHaveHighCard(
+    private fun whoWinsHighCard(
         sortedA: List<Int>,
         sortedB: List<Int>
     ): String {
