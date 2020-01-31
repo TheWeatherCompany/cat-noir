@@ -65,6 +65,18 @@ class PokerHandsTest {
             "Player A Wins",
             listOf(2, 2, 4, 5, 8),
             listOf(2, 3, 4, 5, 8)
+        ),
+        arrayOf(
+            "Player B has a pair",
+            "Player B Wins",
+            listOf(2, 3, 4, 5, 8),
+            listOf(2, 2, 4, 5, 8)
+        ),
+        arrayOf(
+            "Player B has a higher pair than A",
+            "Player B Wins",
+            listOf(2, 2, 4, 5, 10),
+            listOf(2, 4, 4, 5, 8)
         )
     )
 }
