@@ -7,7 +7,18 @@ class PokerHands {
      * @param playerB list of player B card values
      */
     fun getWinner(playerA: List<Int>, playerB: List<Int>): String {
+        val sortedA = playerA.sortedDescending()
+        val sortedB = playerB.sortedDescending()
 
-        return "Invalid Input"
+
+        if(sortedA.max()!! == sortedB.max()!!) {
+
+        }
+
+        return if (sortedA.max()!! < sortedB.max()!!) {
+            "Player B Wins"
+        } else {
+            "Player A Wins"
+        }
     }
 }
