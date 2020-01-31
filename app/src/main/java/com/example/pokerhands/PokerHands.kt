@@ -14,11 +14,31 @@ class PokerHands {
     }
 
     private fun whoWins2Pair(sortedA: List<Int>, sortedB: List<Int>): String? {
+        val pairA = getPair(sortedA)
+        val pairB = getPair(sortedB)
+        val pairA2 = get2Pair(sortedA)
+        val pairB2 = get2Pair(sortedB)
 
-        if (getPair(sortedA) != 0 && get2Pair(sortedA) != 0) {
+        if(pairA2 > 0 && pairB2 == 0) {
             return "Player A Wins"
+        } else if (pairA2 == 0 &&  pairB2 > 0) {
+            return "Player B Wins"
+        }
+
+        return if (pairA > pairB) {
+            "Player A Wins"
+        } else if (pairA < pairB) {
+            "Player B Wins"
+        } else if (pairA > 0 && pairB > 0 && pairA == pairB) {
+            if(pairA2 > pairB2) {
+                return "Player A Wins"
+            } else if (pairA2 < pairB2) {
+                return "Player B Wins"
+            }
+
+            whoWinsHighCard(sortedA, sortedB)
         } else {
-            return ""
+            null
         }
     }
 
