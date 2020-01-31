@@ -10,15 +10,23 @@ class PokerHands {
         val sortedA = playerA.sortedDescending()
         val sortedB = playerB.sortedDescending()
 
-
-        if(sortedA.max()!! == sortedB.max()!!) {
-
+        var i = 0
+        while(i < sortedA.size && sortedA[i] == sortedB[i]) {
+            i++
         }
 
-        return if (sortedA.max()!! < sortedB.max()!!) {
+        if(i == sortedA.size) {
+            return "Tie"
+        }
+
+        return if (sortedA[i] < sortedB[i]) {
             "Player B Wins"
         } else {
             "Player A Wins"
         }
+    }
+
+    fun countDuplicates(item: Int, list: List<Int>): Int {
+        return list.count { it == item } - 1
     }
 }
