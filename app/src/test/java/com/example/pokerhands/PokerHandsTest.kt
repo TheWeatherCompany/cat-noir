@@ -77,6 +77,30 @@ class PokerHandsTest {
             "Player B Wins",
             listOf(2, 2, 4, 5, 10),
             listOf(2, 4, 4, 5, 8)
+        ),
+        arrayOf(
+            "Player A has a higher pair than B",
+            "Player A Wins",
+            listOf(2, 3, 4, 10, 10),
+            listOf(2, 4, 4, 5, 8)
+        ),
+        arrayOf(
+            "Player A and B have a tied pair",
+            "Player A Wins",
+            listOf(2, 2, 4, 5, 10),
+            listOf(2, 2, 4, 5, 8)
+        ),
+        arrayOf(
+            "Player A and B have a tied pair",
+            "Player B Wins",
+            listOf(2, 3, 4, 10, 10),
+            listOf(2, 3, 5, 10, 10)
+        ),
+        arrayOf(
+            "Player A and B have a tied pair and the their cards are tied",
+            "Tie",
+            listOf(2, 3, 4, 10, 10),
+            listOf(2, 3, 4, 10, 10)
         )
     )
 }

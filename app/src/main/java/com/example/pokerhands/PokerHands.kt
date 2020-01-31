@@ -10,20 +10,7 @@ class PokerHands {
         val sortedA = playerA.sortedDescending()
         val sortedB = playerB.sortedDescending()
 
-        val aHasPair = hasPair(sortedA)
-        val bHasPair = hasPair(sortedB)
-        if (aHasPair && !bHasPair) {
-            return "Player A Wins"
-        } else if (bHasPair && !aHasPair) {
-            return "Player B Wins"
-        } else if (aHasPair && bHasPair) {
-            if (getPair(sortedA) > getPair(sortedB)) {
-                return "Player A Wins"
-            } else if (getPair(sortedA) < getPair(sortedB)) {
-                return "Player B Wins"
-            }
-        }
-        return whoWinsWhenBothHaveHighCard(sortedA, sortedB)
+        return whoWinsPair(sortedA, sortedB) ?: whoWinsWhenBothHaveHighCard(sortedA, sortedB)
     }
 
     fun getPair(cards: List<Int>): Int {
@@ -38,15 +25,22 @@ class PokerHands {
         return 0
     }
 
-    private fun hasPair(list: List<Int>): Boolean {
-        return list.toSet().size < 5
-    }
-
     fun countDuplicates(item: Int, list: List<Int>): Int {
         return list.count { it == item } - 1
     }
 
 
+    private fun whoWinsPair(sortedA: List<Int>, sortedB: List<Int>): String? {
+        if (getPair(sortedA) > getPair(sortedB)) {
+            return "Player A Wins"
+        } else if (getPair(sortedA) < getPair(sortedB)) {
+            return "Player B Wins"
+        } else if (getPair(sortedA) < getPair(sortedB)) {
+            return whoWinsWhenBothHaveHighCard(sortedA, sortedB)
+        } else {
+            return null
+        }
+    }
 
     private fun whoWinsWhenBothHaveHighCard(
         sortedA: List<Int>,
