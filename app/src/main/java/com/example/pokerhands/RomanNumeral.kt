@@ -1,4 +1,5 @@
 package com.example.pokerhands
+
 /*
 start at the beginning
 
@@ -12,26 +13,31 @@ start
  */
 class RomanNumeral {
 
-    val vals =     I            1
-    V            5
-    X            10
-    L            50
-    C            100
-    D            500
-    M            1000
+    val vals = mapOf(
+        "I" to 1,
+        "V" to 5,
+        "X" to 10,
+        "L" to 50,
+        "C" to 100,
+        "D" to 500,
+        "M" to 1000
+    )
 
-    fun convert(numeral: String): Int =
-        numeral.forEachIndexed() {  index, ch ->
+    fun convert(numeral: String): Int {
+        var holdValue = 0
+        numeral.forEachIndexed() { index, ch ->
             if (index < numeral.length) {
                 // peek at the next char
                 val next = numeral[index]
 
             } else {
                 // add
+                holdValue += vals[ch.toString()] ?: error("")
+
             }
         }
 
-        when (numeral) {
+        return when (numeral) {
             "I" -> 1
             "II" -> 2
             "III" -> 3
@@ -43,6 +49,7 @@ class RomanNumeral {
             "IX" -> 9
             else -> TODO("oops")
         }
+    }
 }
 
 /*
