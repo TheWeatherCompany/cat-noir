@@ -1,15 +1,11 @@
 package com.example.pokerhands
 
 /*
-start at the beginning
-
-start
+For each character
  examine this character
- examine the next character (if any)
- if the next is higher, subtract this from next and consume both
- if next is same, add them and consume both
- if next is lower, add this, consume it, and goto start
- if there is none, then add this, and done
+ examine the next character (if any if their is next character)
+ if the next is higher, subtract this
+ else add this
  */
 class RomanNumeral {
 
@@ -25,33 +21,30 @@ class RomanNumeral {
 
     fun convert(numeral: String): Int {
         var holdValue = 0
+
         numeral.forEachIndexed() { index, ch ->
-            if (index+1 < numeral.length) {
+
+            val thisValue = vals.get(ch.toString())!!
+            if (index + 1 < numeral.length) {
                 // peek at the next char
                 val next = numeral[index + 1]
-               if(vals.get(ch.toString())!! < vals.get(next.toString())!!){
-                   
-               }
 
+                val nextValue = vals.get(next.toString())!!
 
-            } else {
-                // add
-                holdValue += vals[ch.toString()]!!
+                if (thisValue < nextValue) {
+                    holdValue-=thisValue
+                }
+                else{
+                    holdValue+=thisValue
+                }
             }
+            else{
+                holdValue+=thisValue
+            }
+
         }
 
-        return when (numeral) {
-            "I" -> 1
-            "II" -> 2
-            "III" -> 3
-            "IV" -> 4
-            "V" -> 5
-            "VI" -> 6
-            "VII" -> 7
-            "VIII" -> 8
-            "IX" -> 9
-            else -> TODO("oops")
-        }
+        return holdValue
     }
 }
 

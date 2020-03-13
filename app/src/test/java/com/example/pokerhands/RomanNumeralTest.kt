@@ -27,7 +27,11 @@ class RomanNumeralTest {
         arrayOf("VI", 6),
         arrayOf("VII", 7),
         arrayOf("VIII", 8),
-        arrayOf("IX", 9)
+        arrayOf("IX", 9),
+        arrayOf("MCMXCVII", 1997),
+        arrayOf("CXX", 120),
+        arrayOf("XXX", 30)
+
     )
 
     /*
