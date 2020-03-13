@@ -1,8 +1,36 @@
 package com.example.pokerhands
+/*
+start at the beginning
 
+start
+ examine this character
+ examine the next character (if any)
+ if the next is higher, subtract this from next and consume both
+ if next is same, add them and consume both
+ if next is lower, add this, consume it, and goto start
+ if there is none, then add this, and done
+ */
 class RomanNumeral {
 
+    val vals =     I            1
+    V            5
+    X            10
+    L            50
+    C            100
+    D            500
+    M            1000
+
     fun convert(numeral: String): Int =
+        numeral.forEachIndexed() {  index, ch ->
+            if (index < numeral.length) {
+                // peek at the next char
+                val next = numeral[index]
+
+            } else {
+                // add
+            }
+        }
+
         when (numeral) {
             "I" -> 1
             "II" -> 2
@@ -13,7 +41,7 @@ class RomanNumeral {
             "VII" -> 7
             "VIII" -> 8
             "IX" -> 9
-            else -> 10
+            else -> TODO("oops")
         }
 }
 
@@ -32,7 +60,7 @@ The Romans wrote numbers using letters : I, V, X, L, C, D, M. (notice these lett
 straight lines and are hence easy to hack into stone tablets)
 
 Part I
-The Kata says you should write a function to convert from normal numbers to Roman Numerals: eg
+The Kata says you should write a function to convert from Roman numerals to numbers: eg
     Symbol       Value
     I            1
     V            5
