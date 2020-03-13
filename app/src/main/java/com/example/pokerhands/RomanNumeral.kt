@@ -40,7 +40,7 @@ The Kata says you should write a function to convert from normal numbers to Roma
     L            50
     C            100
     D            500
-    M            3000
+    M            1000
 
 A small-value symbol before a large-value symbol is subtracted from the large-value symbol
 I, X, C and M can be repeated 3 times
