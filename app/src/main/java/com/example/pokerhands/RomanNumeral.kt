@@ -13,7 +13,7 @@ start
  */
 class RomanNumeral {
 
-    val vals = mapOf(
+    private val vals = mapOf(
         "I" to 1,
         "V" to 5,
         "X" to 10,
@@ -26,14 +26,17 @@ class RomanNumeral {
     fun convert(numeral: String): Int {
         var holdValue = 0
         numeral.forEachIndexed() { index, ch ->
-            if (index < numeral.length) {
+            if (index+1 < numeral.length) {
                 // peek at the next char
-                val next = numeral[index]
+                val next = numeral[index + 1]
+               if(vals.get(ch.toString())!! < vals.get(next.toString())!!){
+                   
+               }
+
 
             } else {
                 // add
-                holdValue += vals[ch.toString()] ?: error("")
-
+                holdValue += vals[ch.toString()]!!
             }
         }
 
