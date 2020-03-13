@@ -20,6 +20,14 @@ class RomanNumeralTest {
 
     fun getInput() = arrayOf(
         arrayOf("I", 1),
-        arrayOf("II", 2)  
+        arrayOf("II", 2),
+        arrayOf("III", 3),
+        arrayOf("IV", 4),
+        arrayOf("V", 5),
+        arrayOf("VI", 6),
+        arrayOf("VII", 7),
+        arrayOf("VIII", 8),
+        arrayOf("IX", 9),
+        arrayOf("X", 10)
     )
 }
