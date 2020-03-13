@@ -20,6 +20,6 @@ class RomanNumeralTest {
 
     fun getInput() = arrayOf(
         arrayOf("I", 1),
-        arrayOf("II", 2)
+        arrayOf("II", 2)  
     )
 }
