@@ -29,6 +29,10 @@ class CalculatorTest {
         arrayOf("1", 1),
         arrayOf("27", 27),
         arrayOf("5 3", 3),
-        arrayOf("5 3 +", 8)
+        arrayOf("5 3 +", 8),
+        arrayOf("5 3 3 + +", 11),
+        arrayOf("5 3 3 + + 7 *", 77),
+        arrayOf("5 3 - ", 2),
+        arrayOf("9 3 / ", 3)
     )
 }
