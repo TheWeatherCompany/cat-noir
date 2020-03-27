@@ -27,8 +27,16 @@ class CalculatorTest {
 
     fun getInput() = arrayOf(
         arrayOf(
-            "1", 1,
+            "1", 1
+        ),
+        arrayOf(
             "27", 27
+        ),
+        arrayOf(
+            "5 3", 3
+        ),
+        arrayOf(
+            "5 3 +", 8
         )
     )
 }

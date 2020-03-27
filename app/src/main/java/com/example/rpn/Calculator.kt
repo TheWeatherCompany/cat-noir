@@ -7,10 +7,11 @@ class Calculator {
     private val stack = Stack<Int>()
 
     fun calculate(equation: String): Int {
-        val scanner: Scanner()
-
-        val i = scanner.nextInt()
-        stack.push(i)
+        val scanner = Scanner(equation)
+        while (scanner.hasNextInt()) {
+            val i = scanner.nextInt()
+            stack.push(i)
+        }
         return stack.pop()
     }
 }
