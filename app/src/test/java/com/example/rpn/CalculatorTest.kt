@@ -1,6 +1,5 @@
 package com.example.rpn
 
-import com.example.pokerhands.PokerHands
 import junitparams.JUnitParamsRunner
 import junitparams.Parameters
 import junitparams.naming.TestCaseName
@@ -36,8 +35,9 @@ class CalculatorTest {
         arrayOf("9 3 / ", 3),
         arrayOf("9 -1 / ", -9),
         arrayOf("5 5 - ", 0),
-        arrayOf("1 8 a = ", 1)
+        arrayOf("1 8 a = ", 1),
+        arrayOf("a", 8),
+        arrayOf("1 5 8 + a = a", 13),
+        arrayOf("1 5 8 + b = a b +", 26)
     )
-    //[1 8 a =] = 1
-    //[1 5 8 + a =] = 6?
 }

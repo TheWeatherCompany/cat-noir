@@ -5,31 +5,36 @@ import kotlin.collections.HashMap
 
 class Calculator {
 
+    companion object {
+        val variables = HashMap<String, Int>()
+    }
+
     private val stack = Stack<Any>()
-    private val variables = HashMap<String, Int>()
 
     fun calculate(equation: String): Int {
         val scanner = Scanner(equation)
         while (scanner.hasNext()) {
-            if (scanner.hasNextInt()) {
-                val i = scanner.nextInt()
-                stack.push(i)
-            } else if (scanner.hasNext("[+-/*=]")) {
-                val one: Any = stack.pop()
-                val two: Any = stack.pop()
-                when (scanner.next()) {
-                    "+" -> stack.push(getValue(one) + getValue(two))
-                    "-" -> stack.push(getValue(one) - getValue(two))
-                    "/" -> stack.push(getValue(one) / getValue(two))
-                    "*" -> stack.push(getValue(one) * getValue(two))
-                    "=" -> variables[one as String] = two as Int
+            when {
+                scanner.hasNextInt() -> {
+                    stack.push(scanner.nextInt())
+                }
+                scanner.hasNext("[+-/*=]") -> {
+                    val one: Any = stack.pop()
+                    val two: Any = stack.pop()
+                    when (scanner.next()) {
+                        "+" -> stack.push(getValue(two) + getValue(one))
+                        "-" -> stack.push(getValue(two) - getValue(one))
+                        "/" -> stack.push(getValue(two) / getValue(one))
+                        "*" -> stack.push(getValue(two) * getValue(one))
+                        "=" -> variables[one as String] = two as Int
+                    }
+                }
+                else -> {
+                    stack.push(scanner.next()) // variable name
                 }
             }
-            else {
-                stack.push(scanner.next())
-            }
         }
-        return stack.pop() as Int
+        return getValue(stack.pop())
     }
 
     fun getValue(input: Any): Int {
