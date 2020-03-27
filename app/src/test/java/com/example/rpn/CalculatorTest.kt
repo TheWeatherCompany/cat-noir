@@ -38,6 +38,10 @@ class CalculatorTest {
         arrayOf("1 8 a = ", 1),
         arrayOf("a", 8),
         arrayOf("1 5 8 + a = a", 13),
-        arrayOf("1 5 8 + b = a b +", 26)
+        arrayOf("1 5 8 + b = a b +", 26),
+        arrayOf("a c = c", 13),
+        arrayOf("1 a = a", 1),
+        arrayOf("-1 a = a", -1),
+        arrayOf("1 a + a = a", 0)
     )
 }

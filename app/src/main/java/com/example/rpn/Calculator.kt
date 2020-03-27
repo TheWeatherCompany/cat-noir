@@ -26,7 +26,7 @@ class Calculator {
                         "-" -> stack.push(getValue(two) - getValue(one))
                         "/" -> stack.push(getValue(two) / getValue(one))
                         "*" -> stack.push(getValue(two) * getValue(one))
-                        "=" -> variables[one as String] = two as Int
+                        "=" -> variables[one as String] = getValue(two)
                     }
                 }
                 else -> {
