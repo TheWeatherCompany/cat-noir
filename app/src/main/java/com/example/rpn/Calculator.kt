@@ -15,8 +15,8 @@ class Calculator {
                 val i = scanner.nextInt()
                 stack.push(i)
             } else {
-                val one: Int? = getValue(stack.pop())
-                val two: Int? = getValue(stack.pop())
+                val one: Any = getValue(stack.pop())
+                val two: Any = getValue(stack.pop())
                 when (scanner.next()) {
                     "+" -> stack.push(one + two)
                     "-" -> stack.push(two - one)
@@ -31,7 +31,7 @@ class Calculator {
         return stack.pop() as Int
     }
 
-    fun getValue(input: Any): Int? {
+    fun getValue(input: Any): Int {
         return when (input) {
             is Int -> input
             is String -> variables[input]

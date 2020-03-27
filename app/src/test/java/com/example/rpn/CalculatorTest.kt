@@ -38,4 +38,6 @@ class CalculatorTest {
         arrayOf("5 5 - ", 0),
         arrayOf("1 8 a = ", 1)
     )
+    //[1 8 a =] = 1
+    //[1 5 8 + a =] = 6?
 }
