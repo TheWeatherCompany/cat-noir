@@ -14,7 +14,7 @@ class Calculator {
             if (scanner.hasNextInt()) {
                 val i = scanner.nextInt()
                 stack.push(i)
-            } else {
+            } else if (scanner.hasNext("[+-/*=]")) {
                 val one: Any = stack.pop()
                 val two: Any = stack.pop()
                 when (scanner.next()) {
@@ -22,13 +22,11 @@ class Calculator {
                     "-" -> stack.push(getValue(one) - getValue(two))
                     "/" -> stack.push(getValue(one) / getValue(two))
                     "*" -> stack.push(getValue(one) * getValue(two))
-                    else -> {
-                        if (two.equals("=")) {
-                            variables.put(one as String, getValue(stack.pop()))
-                        }
-//                        variables.put(two as String, one)
-                    }
+                    "=" -> variables[one as String] = two as Int
                 }
+            }
+            else {
+                stack.push(scanner.next())
             }
         }
         return stack.pop() as Int
