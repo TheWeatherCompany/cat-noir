@@ -6,7 +6,6 @@ import kotlin.collections.HashMap
 class Calculator {
 
     private val stack = Stack<Any>()
-
     private val variables = HashMap<String, Int>()
 
     fun calculate(equation: String): Int {
@@ -16,24 +15,27 @@ class Calculator {
                 val i = scanner.nextInt()
                 stack.push(i)
             } else {
-                val one = stack.pop()
-                val two = stack.pop()
+                val one: Int? = getValue(stack.pop())
+                val two: Int? = getValue(stack.pop())
                 when (scanner.next()) {
                     "+" -> stack.push(one + two)
                     "-" -> stack.push(two - one)
                     "/" -> stack.push(two / one)
                     "*" -> stack.push(one * two)
-                    else -> TODO("bleh")
+                    else -> {
+                        variables.put(two as String, one)
+                    }
+                }
             }
         }
-        return stack.pop()
+        return stack.pop() as Int
     }
 
-        fun getValue(input: Any): Int {
-            when(input) {
-                is Int -> return input
-                is String -> return variables.get(input) as Int
-            }
+    fun getValue(input: Any): Int? {
+        return when (input) {
+            is Int -> input
+            is String -> variables[input]
+            else -> throw IllegalArgumentException()
         }
     }
 }
