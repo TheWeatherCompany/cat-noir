@@ -32,3 +32,15 @@ At the end of an equation, the result of a stack with more than one item will
 be the top of the stack.
 
 Possible extensions: additional operators (exponentiation, min/max, sqrt, general root)
+
+
+
+
+
+8 a =
+means that "a" will evaluate to 8 in future equations (or later in this equation)
+"=" pushes nothing on to the stack
+so:
+8 a = a a *
+will resolve to 64
+These assignments should persist between calculations

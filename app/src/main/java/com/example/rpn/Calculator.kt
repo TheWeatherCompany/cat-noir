@@ -15,15 +15,11 @@ class Calculator {
             } else {
                 val one = stack.pop()
                 val two = stack.pop()
-                val operator = scanner.next()
-                if (operator.equals("+")) {
-                    stack.push(one + two)
-                } else if (operator.equals("-")) {
-                    stack.push(two - one)
-                } else if (operator.equals("/")) {
-                    stack.push(two / one)
-                } else {
-                    stack.push(one * two)
+                when (scanner.next()) {
+                    "+" -> stack.push(one + two)
+                    "-" -> stack.push(two - one)
+                    "/" -> stack.push(two / one)
+                    else -> stack.push(one * two)
                 }
 
             }

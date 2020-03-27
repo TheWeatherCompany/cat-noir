@@ -33,6 +33,9 @@ class CalculatorTest {
         arrayOf("5 3 3 + +", 11),
         arrayOf("5 3 3 + + 7 *", 77),
         arrayOf("5 3 - ", 2),
-        arrayOf("9 3 / ", 3)
+        arrayOf("9 3 / ", 3),
+        arrayOf("9 -1 / ", -9),
+        arrayOf("5 5 - ", 0),
+        arrayOf("1 8 a = ", 1)
     )
 }
