@@ -15,15 +15,18 @@ class Calculator {
                 val i = scanner.nextInt()
                 stack.push(i)
             } else {
-                val one: Any = getValue(stack.pop())
-                val two: Any = getValue(stack.pop())
+                val one: Any = stack.pop()
+                val two: Any = stack.pop()
                 when (scanner.next()) {
-                    "+" -> stack.push(one + two)
-                    "-" -> stack.push(two - one)
-                    "/" -> stack.push(two / one)
-                    "*" -> stack.push(one * two)
+                    "+" -> stack.push(getValue(one) + getValue(two))
+                    "-" -> stack.push(getValue(one) - getValue(two))
+                    "/" -> stack.push(getValue(one) / getValue(two))
+                    "*" -> stack.push(getValue(one) * getValue(two))
                     else -> {
-                        variables.put(two as String, one)
+                        if (two.equals("=")) {
+                            variables.put(one as String, getValue(stack.pop()))
+                        }
+//                        variables.put(two as String, one)
                     }
                 }
             }
@@ -34,7 +37,7 @@ class Calculator {
     fun getValue(input: Any): Int {
         return when (input) {
             is Int -> input
-            is String -> variables[input]
+            is String -> variables[input] as Int
             else -> throw IllegalArgumentException()
         }
     }
