@@ -56,7 +56,7 @@ class PokerHands {
 
     private fun get2Pair(cards: List<Int>): Int {
         val firstPair = getPair(cards)
-        return getPair(cards.filter { it == firstPair })
+        return getPair(cards.filterNot { it == firstPair })
     }
 
     private fun countDuplicates(item: Int, list: List<Int>): Int {
