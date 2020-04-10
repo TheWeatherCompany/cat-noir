@@ -12,7 +12,7 @@ class PacmanTest {
 
     @Test
     @Parameters(method = "getInput")
-    @TestCaseName("equation '{0}' should equal {1}")
+    @TestCaseName("width '{0}', height '{1}' should give {2}")
     fun `test my input`(
         boardWidth: Int,
         boardHeight: Int,
