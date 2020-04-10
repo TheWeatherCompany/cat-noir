@@ -25,8 +25,8 @@ class PacmanGameTest {
     }
 
     fun getEmptyBoardInput() = arrayOf(
-        arrayOf(1, 1, ".\n"),// empty 1x1 grid matches expectation
-        arrayOf(2, 1, "..\n"), // empty 2x1 grid matches expectation
-        arrayOf(3, 5, "...\n...\n...\n...\n...\n") // empty 3x5 grid matches expectation
+        arrayOf(1, 1, "v\n"),// empty 1x1 grid matches expectation
+        arrayOf(2, 1, "v.\n"), // empty 2x1 grid matches expectation
+        arrayOf(3, 5, "...\n...\n.v.\n...\n...\n") // empty 3x5 grid matches expectation
     )
 }
