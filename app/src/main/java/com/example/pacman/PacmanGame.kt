@@ -17,14 +17,20 @@ class PacmanGame(width: Int, height: Int) {
 
     fun currentState(): String {
         val output = StringBuffer()
-        for (row in board) {
-            for (cell in row) {
-                output.append(cell)
+        for (row in board.withIndex()) {
+            for (cell in row.value.withIndex()) {
+                output.append(calculateCharacter(cell, row))
             }
             output.append("\n")
         }
         return output.toString()
     }
+
+    private fun calculateCharacter(
+        cell: IndexedValue<Char>,
+        row: IndexedValue<Array<Char>>
+    ) =
+        if (cell.index == pacman.x && row.index == pacman.y) pacman.directions[pacman.direction] else cell.value
 
     data class MovingThing(val x: Int, val y: Int, val direction: Int, val directions: Array<Char>)
 }
