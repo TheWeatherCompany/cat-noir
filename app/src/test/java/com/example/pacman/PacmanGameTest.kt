@@ -8,7 +8,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(JUnitParamsRunner::class)
-class PacmanTest {
+class PacmanGameTest {
 
     @Test
     @Parameters(method = "getInput")
@@ -19,7 +19,7 @@ class PacmanTest {
         expected: String
     ) {
 
-        val pacman = Pacman(boardWidth, boardHeight)
+        val pacman = PacmanGame(boardWidth, boardHeight)
         val result = pacman.currentState()
 
         Assert.assertEquals(expected , result)

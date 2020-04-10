@@ -1,6 +1,6 @@
 package com.example.pacman
 
-class Pacman(width:Int,height:Int) {
+class PacmanGame(width:Int, height:Int) {
 
     private var board = arrayOf<Array<Char>>()
 
@@ -24,4 +24,6 @@ class Pacman(width:Int,height:Int) {
         }
         return output.toString()
     }
+
+    data class MovingThing(val x : Int, val y : Int, val direction : Int, val directions : Array<Char>)
 }
