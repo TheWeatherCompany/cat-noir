@@ -28,7 +28,8 @@ class PacmanTest {
 
 
     fun getInput() = arrayOf(
-        arrayOf( 1, 1,".") // empty 1x1 grid matches expectation
+        arrayOf(1, 1, "."),// empty 1x1 grid matches expectation
+        arrayOf(2, 1, "..") // empty 2x1 grid matches expectation
 
     )
 }
