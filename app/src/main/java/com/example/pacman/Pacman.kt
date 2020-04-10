@@ -20,6 +20,7 @@ class Pacman(width:Int,height:Int) {
             for (cell in row) {
                 output.append(cell)
             }
+            output.append("\n")
         }
         return output.toString()
     }

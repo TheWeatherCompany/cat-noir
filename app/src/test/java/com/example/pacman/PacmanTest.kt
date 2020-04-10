@@ -19,7 +19,7 @@ class PacmanTest {
         expected: String
     ) {
 
-        val pacman = Pacman(1, 1)
+        val pacman = Pacman(boardWidth, boardHeight)
         val result = pacman.currentState()
 
         Assert.assertEquals(expected , result)
@@ -28,8 +28,8 @@ class PacmanTest {
 
 
     fun getInput() = arrayOf(
-        arrayOf(1, 1, "."),// empty 1x1 grid matches expectation
-        arrayOf(2, 1, "..") // empty 2x1 grid matches expectation
-
+        arrayOf(1, 1, ".\n"),// empty 1x1 grid matches expectation
+        arrayOf(2, 1, "..\n"), // empty 2x1 grid matches expectation
+        arrayOf(3, 5, "...\n...\n...\n...\n...\n") // empty 3x5 grid matches expectation
     )
 }
