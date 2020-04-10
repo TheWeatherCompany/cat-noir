@@ -1,8 +1,9 @@
 package com.example.pacman
 
-class PacmanGame(width:Int, height:Int) {
+class PacmanGame(width: Int, height: Int) {
 
     private var board = arrayOf<Array<Char>>()
+    private val pacman = MovingThing(width/2, height/2, 1, arrayOf('>', 'v', '<', '^'))
 
     init {
         for (i in 0 until height) {
@@ -14,7 +15,7 @@ class PacmanGame(width:Int, height:Int) {
         }
     }
 
-    fun currentState():String{
+    fun currentState(): String {
         val output = StringBuffer()
         for (row in board) {
             for (cell in row) {
@@ -25,5 +26,5 @@ class PacmanGame(width:Int, height:Int) {
         return output.toString()
     }
 
-    data class MovingThing(val x : Int, val y : Int, val direction : Int, val directions : Array<Char>)
+    data class MovingThing(val x: Int, val y: Int, val direction: Int, val directions: Array<Char>)
 }

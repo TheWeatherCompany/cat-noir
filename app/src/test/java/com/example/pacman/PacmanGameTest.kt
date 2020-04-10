@@ -11,23 +11,20 @@ import org.junit.runner.RunWith
 class PacmanGameTest {
 
     @Test
-    @Parameters(method = "getInput")
+    @Parameters(method = "getEmptyBoardInput")
     @TestCaseName("width '{0}', height '{1}' should give {2}")
     fun `test my input`(
         boardWidth: Int,
         boardHeight: Int,
         expected: String
     ) {
-
         val pacman = PacmanGame(boardWidth, boardHeight)
         val result = pacman.currentState()
 
         Assert.assertEquals(expected , result)
     }
 
-
-
-    fun getInput() = arrayOf(
+    fun getEmptyBoardInput() = arrayOf(
         arrayOf(1, 1, ".\n"),// empty 1x1 grid matches expectation
         arrayOf(2, 1, "..\n"), // empty 2x1 grid matches expectation
         arrayOf(3, 5, "...\n...\n...\n...\n...\n") // empty 3x5 grid matches expectation
