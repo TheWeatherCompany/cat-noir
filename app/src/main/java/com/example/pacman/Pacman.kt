@@ -1,20 +1,17 @@
 package com.example.pacman
 
-import java.util.*
-import kotlin.collections.HashMap
-
 class Pacman(width:Int,height:Int) {
 
-    val board = arrayOf<Array<Char>>()
+    private val board : Array<Array<Char>> = arrayOf(height, { arrayOf(width, {'.'}) })
 
 
     fun currentState():String{
-        return "."
+        var output = StringBuffer()
+        for (row in board) {
+            for (cell in row) {
+                output.append(cell)
+            }
+        }
+        return output.toString()
     }
-
-    fun populate(){
-        
-    }
-
-
 }
